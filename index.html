@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>Advanced Calculator</h1>
+        <p>Scientific functions • Expression parser • Memory • History</p>
+      </header>
+
+      <main class="calculator">
+        <section class="display">
+          <input id="expression" type="text" inputmode="text" autocomplete="off" placeholder="e.g., 2*(3+4)^2 + sin(30)" />
+          <div class="result-row">
+            <div id="result">0</div>
+            <div id="angle-mode" class="pill">DEG</div>
+          </div>
+        </section>
+
+        <section class="keypad">
+          <div class="memory">
+            <button data-action="mc">MC</button>
+            <button data-action="mr">MR</button>
+            <button data-action="mplus">M+</button>
+            <button data-action="mminus">M-</button>
+            <button data-action="ms">MS</button>
+          </div>
+
+          <div class="functions">
+            <button data-insert="sin(">sin</button>
+            <button data-insert="cos(">cos</button>
+            <button data-insert="tan(">tan</button>
+            <button data-insert="asin(">asin</button>
+            <button data-insert="acos(">acos</button>
+            <button data-insert="atan(">atan</button>
+
+            <button data-insert="log(">log</button>
+            <button data-insert="ln(">ln</button>
+            <button data-insert="sqrt(">sqrt</button>
+            <button data-insert="abs(">abs</button>
+            <button data-insert="fact(">x!</button>
+            <button data-insert="pow(">pow</button>
+          </div>
+
+          <div class="numbers">
+            <button data-action="clear">AC</button>
+            <button data-action="delete">DEL</button>
+            <button data-insert="(">(</button>
+            <button data-insert=")">)</button>
+
+            <button data-insert="7">7</button>
+            <button data-insert="8">8</button>
+            <button data-insert="9">9</button>
+            <button data-insert="/">÷</button>
+
+            <button data-insert="4">4</button>
+            <button data-insert="5">5</button>
+            <button data-insert="6">6</button>
+            <button data-insert="*">×</button>
+
+            <button data-insert="1">1</button>
+            <button data-insert="2">2</button>
+            <button data-insert="3">3</button>
+            <button data-insert="-">−</button>
+
+            <button data-insert="0">0</button>
+            <button data-insert=".">.</button>
+            <button data-insert="%">%</button>
+            <button data-insert="+">+</button>
+
+            <button class="equals" data-action="equals">=</button>
+          </div>
+
+          <div class="controls">
+            <button data-action="angle">DEG/RAD</button>
+            <button data-insert="pi">π</button>
+            <button data-insert="e">e</button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="history">
+        <div class="history-header">
+          <h2>History</h2>
+          <button data-action="clear-history">Clear</button>
+        </div>
+        <ul id="history-list"></ul>
+      </aside>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
