@@ -1,0 +1,207 @@
+:root {
+  --bg: #0f1b2b;
+  --panel: #18263a;
+  --accent: #ffb347;
+  --accent-2: #7dd3fc;
+  --text: #f7f7f7;
+  --muted: #b5c3d6;
+  --danger: #ff6b6b;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at top, #1c2f4a, #0b1421 70%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+}
+
+.app {
+  display: grid;
+  gap: 24px;
+  width: min(1100px, 100%);
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+}
+
+header {
+  grid-column: 1 / -1;
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.calculator {
+  background: var(--panel);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.display {
+  background: #0f1b2b;
+  border-radius: 18px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.display input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.pill {
+  font-size: 0.85rem;
+  background: rgba(125, 211, 252, 0.2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--accent-2);
+}
+
+.keypad {
+  display: grid;
+  gap: 16px;
+}
+
+.keypad button {
+  border: none;
+  background: #22324d;
+  color: var(--text);
+  padding: 12px;
+  border-radius: 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+
+.keypad button:hover {
+  background: #2a3f60;
+}
+
+.keypad button:active {
+  transform: scale(0.98);
+}
+
+.memory,
+.functions,
+.controls,
+.numbers {
+  display: grid;
+  gap: 10px;
+}
+
+.memory {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.functions {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.numbers {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.numbers .equals {
+  grid-column: 1 / -1;
+  background: var(--accent);
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.controls {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.history {
+  background: rgba(24, 38, 58, 0.9);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.history-header button {
+  background: transparent;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+#history-list li {
+  background: #0f1b2b;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+#history-list li strong {
+  color: var(--text);
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .functions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .memory {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
